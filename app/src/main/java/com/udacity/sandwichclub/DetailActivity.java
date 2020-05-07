@@ -25,10 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView setOrigin;
     TextView setDescription;
 
-    List<String> nickname;
-    String origin;
-    String description;
-    List<String> ingredients;
+    String nickname, origin, description, ingredients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +65,8 @@ public class DetailActivity extends AppCompatActivity {
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
-        nickname=sandwich.getAlsoKnownAs();
-        ingredients=sandwich.getIngredients();
+        nickname=sandwich.getAlsoKnownAs().toString();
+        ingredients=sandwich.getIngredients().toString();
         origin=sandwich.getPlaceOfOrigin();
         description=sandwich.getDescription();
 
@@ -82,8 +79,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
-        setNickname.setText(nickname.toString());
-        setIngredients.setText(ingredients.toString());
+        setNickname.setText(nickname.substring(1,nickname.length()-1));
+        setIngredients.setText(ingredients.substring(1,nickname.length()-1));
         setOrigin.setText(origin);
         setDescription.setText(description);
     }
